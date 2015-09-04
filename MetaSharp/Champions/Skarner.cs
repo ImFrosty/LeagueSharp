@@ -112,7 +112,9 @@ namespace MetaSharp
 
             if (comboQ && Q.IsReady())
             {
-                Q.Cast();
+                var target = TargetSelector.GetTarget(E.Range, TargetSelector.DamageType.Magical);
+                if (target.IsValidTarget(Q.Range))
+                    Q.Cast();
             }
 
         }
