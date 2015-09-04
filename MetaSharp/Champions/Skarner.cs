@@ -42,12 +42,6 @@ namespace MetaSharp
             comboMenu.AddItem(new MenuItem("comboR", "Use R").SetValue(true));
             comboMenu.AddItem(new MenuItem("Combo", "Combo").SetValue(new KeyBind(32, KeyBindType.Press)));
 
-            Menu clearMenu = Menu.AddSubMenu(new Menu("Jungle Clear", "Jungle Clear"));
-            clearMenu.AddItem(new MenuItem("clearQ", "Use Q").SetValue(true));
-            clearMenu.AddItem(new MenuItem("clearW", "Use W").SetValue(true));
-            clearMenu.AddItem(new MenuItem("clearE", "Use E").SetValue(true));
-            clearMenu.AddItem(new MenuItem("Jungle Clear", "Jungle Clear").SetValue(new KeyBind("V".ToCharArray()[0], KeyBindType.Press)));
-
             Menu ksMenu = Menu.AddSubMenu(new Menu("KS", "KS"));
             ksMenu.AddItem(new MenuItem("ks", "KS").SetValue(true));
 
@@ -72,11 +66,6 @@ namespace MetaSharp
             if (Orbwalker.ActiveMode == Orbwalking.OrbwalkingMode.Combo)
             {
                 combo();
-            }
-
-            if (Orbwalker.ActiveMode == Orbwalking.OrbwalkingMode.LaneClear)
-            {
-                jungle();
             }
 
             if (Menu.Item("ks").GetValue<bool>())
@@ -117,38 +106,6 @@ namespace MetaSharp
                     Q.Cast();
             }
 
-        }
-
-        private static void jungle()
-        {
-            var minion = MinionManager.GetMinions(Player.ServerPosition, E.Range, MinionTypes.All).FirstOrDefault();
-            if (minion == null || minion.Name.ToLower().Contains("ward"))
-            {
-                return;
-            }
-
-            var farmLocation =
-                MinionManager.GetBestCircularFarmLocation(
-                    MinionManager.GetMinions(Q.Range, MinionTypes.All, MinionTeam.Enemy)
-                        .Select(m => m.ServerPosition.To2D())
-                        .ToList(),
-                    E.Width,
-                    E.Range);
-
-            if (Menu.Item("clearQ").GetValue<bool>() && minion.IsValidTarget() && Q.IsReady())
-            {
-                Q.Cast();
-            }
-
-            if (Menu.Item("clearE").GetValue<bool>() && minion.IsValidTarget() && E.IsReady())
-            {
-                E.Cast(farmLocation.Position);
-            }
-
-            if (Menu.Item("clearW").GetValue<bool>() && minion.IsValidTarget() && W.IsReady())
-            {
-                W.Cast();
-            }
         }
 
         private static void ks()
