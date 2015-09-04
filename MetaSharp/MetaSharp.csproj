@@ -74,6 +74,7 @@
     <Compile Include="Champions\Heimerdinger.cs" />
     <Compile Include="Champions\Skarner.cs" />
     <Compile Include="Champions\Garen.cs" />
+    <Compile Include="Champions\Nautilus.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

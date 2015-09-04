@@ -30,6 +30,21 @@ namespace MetaSharp
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
+                    case "Nautilus":
+                        new Nautilus();
+                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
+                        break;
+
+                    case "Skarner":
+                        new Skarner();
+                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
+                        break;
+
+                    case "Garen":
+                        new Garen();
+                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
+                        break;
+
                     default:
                         Notifications.AddNotification(say + def, 5000).SetTextColor(Color2.Crimson);
                         break;

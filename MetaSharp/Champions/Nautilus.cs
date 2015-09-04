@@ -6,26 +6,26 @@ using Color2 = System.Drawing.Color;
 
 namespace MetaSharp
 {
-    class Skarner
+    class Nautilus
     {
         private static Obj_AI_Hero Player { get { return ObjectManager.Player; } }
         private static Orbwalking.Orbwalker Orbwalker;
         private static Spell Q, W, E, R;
         private static Menu Menu;
 
-        public Skarner()
+        public Nautilus()
         {
             Load();
         }
 
         private void Load()
         {
-            Q = new Spell(SpellSlot.Q, 350);
+            Q = new Spell(SpellSlot.Q, 1100);
             W = new Spell(SpellSlot.W);
-            E = new Spell(SpellSlot.E, 1000);
-            R = new Spell(SpellSlot.R, 350);
+            E = new Spell(SpellSlot.E, 600);
+            R = new Spell(SpellSlot.R, 825);
 
-            E.SetSkillshot(0.5f, 60, 1200, false, SkillshotType.SkillshotLine);
+            Q.SetSkillshot(250, 90, 2000, true, SkillshotType.SkillshotLine);
 
             Menu = new Menu("Meta#", "Meta#", true);
 
@@ -42,17 +42,9 @@ namespace MetaSharp
             comboMenu.AddItem(new MenuItem("comboR", "Use R").SetValue(true));
             comboMenu.AddItem(new MenuItem("Combo", "Combo").SetValue(new KeyBind(32, KeyBindType.Press)));
 
-            Menu clearMenu = Menu.AddSubMenu(new Menu("Jungle Clear", "Jungle Clear"));
-            clearMenu.AddItem(new MenuItem("clearQ", "Use Q").SetValue(true));
-            clearMenu.AddItem(new MenuItem("clearW", "Use W").SetValue(true));
-            clearMenu.AddItem(new MenuItem("clearE", "Use E").SetValue(true));
-            clearMenu.AddItem(new MenuItem("Jungle Clear", "Jungle Clear").SetValue(new KeyBind("V".ToCharArray()[0], KeyBindType.Press)));
-
-            Menu ksMenu = Menu.AddSubMenu(new Menu("KS", "KS"));
-            ksMenu.AddItem(new MenuItem("ks", "KS").SetValue(true));
-
             Menu drawMenu = Menu.AddSubMenu(new Menu("Drawings", "Drawings"));
             drawMenu.AddItem(new MenuItem("drawQ", "Draw Q").SetValue(true));
+            drawMenu.AddItem(new MenuItem("drawW", "Draw W").SetValue(true));
             drawMenu.AddItem(new MenuItem("drawE", "Draw E").SetValue(true));
             drawMenu.AddItem(new MenuItem("drawR", "Draw R").SetValue(true));
 
@@ -73,16 +65,6 @@ namespace MetaSharp
             {
                 combo();
             }
-
-            if (Orbwalker.ActiveMode == Orbwalking.OrbwalkingMode.LaneClear)
-            {
-                jungle();
-            }
-
-            if (Menu.Item("ks").GetValue<bool>())
-            {
-                ks();
-            }
         }
 
         private static void combo()
@@ -92,81 +74,32 @@ namespace MetaSharp
             var comboE = (Menu.Item("comboE").GetValue<bool>());
             var comboR = (Menu.Item("comboR").GetValue<bool>());
 
-            if (comboE && E.IsReady())
-            {
-                var target = TargetSelector.GetTarget(E.Range, TargetSelector.DamageType.Magical);
-                if (target.IsValidTarget(E.Range))
-                    E.CastIfHitchanceEquals(target, HitChance.High);
-            }
-
-            if (comboW && W.IsReady() && Player.CountEnemiesInRange(650) > 0)
-            {
-                W.Cast();
-            }
-
             if (comboR && R.IsReady())
             {
-                var target = TargetSelector.GetTarget(E.Range, TargetSelector.DamageType.Magical);
-                R.Cast(target);
+                var target = TargetSelector.GetTarget(R.Range, TargetSelector.DamageType.Magical);
+                if (target.IsValidTarget(R.Range))
+                    R.Cast(Player);
             }
 
             if (comboQ && Q.IsReady())
             {
-                Q.Cast();
+                var target = TargetSelector.GetTarget(Q.Range, TargetSelector.DamageType.Magical);
+                if (target.IsValidTarget(Q.Range))
+                    Q.CastIfHitchanceEquals(target, HitChance.VeryHigh);
             }
 
-        }
-
-        private static void jungle()
-        {
-            var minion = MinionManager.GetMinions(Player.ServerPosition, E.Range).FirstOrDefault();
-            if (minion == null || minion.Name.ToLower().Contains("ward"))
+            if (comboE && E.IsReady())
             {
-                return;
+                var target = TargetSelector.GetTarget(E.Range, TargetSelector.DamageType.Magical);
+                if (target.IsValidTarget(E.Range))
+                    E.Cast();
             }
 
-            var farmLocation =
-                MinionManager.GetBestCircularFarmLocation(
-                    MinionManager.GetMinions(Q.Range, MinionTypes.All, MinionTeam.Enemy)
-                        .Select(m => m.ServerPosition.To2D())
-                        .ToList(),
-                    E.Width,
-                    E.Range);
-
-            if (Menu.Item("clearQ").GetValue<bool>() && minion.IsValidTarget() && Q.IsReady())
-            {
-                Q.Cast();
-            }
-
-            if (Menu.Item("clearE").GetValue<bool>() && minion.IsValidTarget() && E.IsReady())
-            {
-                E.Cast(farmLocation.Position);
-            }
-
-            if (Menu.Item("clearW").GetValue<bool>() && minion.IsValidTarget() && W.IsReady())
+            if (comboW && W.IsReady() && Player.CountEnemiesInRange(600) > 0)
             {
                 W.Cast();
             }
-        }
 
-        private static void ks()
-        {
-            if (Player.IsDead)
-            {
-                return;
-            }
-
-            var target = TargetSelector.GetTarget(W.Range, TargetSelector.DamageType.Magical);
-
-            if (Menu.Item("ks").GetValue<bool>() && E.IsReady() && target.IsValidTarget(E.Range) && E.IsReady() && E.IsKillable(target))
-            {
-                E.CastIfHitchanceEquals(target, HitChance.Medium);
-            }
-
-            if (Menu.Item("ks").GetValue<bool>() && Q.IsReady() && target.IsValidTarget(Q.Range) && Q.IsKillable(target))
-            {
-                Q.Cast();
-            }
         }
 
         private static void Drawing_OnDraw(EventArgs args)
