@@ -121,7 +121,7 @@ namespace MetaSharp
 
         private static void jungle()
         {
-            var minion = MinionManager.GetMinions(Player.ServerPosition, E.Range).FirstOrDefault();
+            var minion = MinionManager.GetMinions(Player.ServerPosition, E.Range, MinionTypes.All).FirstOrDefault();
             if (minion == null || minion.Name.ToLower().Contains("ward"))
             {
                 return;
