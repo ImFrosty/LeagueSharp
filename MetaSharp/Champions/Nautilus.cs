@@ -44,7 +44,6 @@ namespace MetaSharp
 
             Menu drawMenu = Menu.AddSubMenu(new Menu("Drawings", "Drawings"));
             drawMenu.AddItem(new MenuItem("drawQ", "Draw Q").SetValue(true));
-            drawMenu.AddItem(new MenuItem("drawW", "Draw W").SetValue(true));
             drawMenu.AddItem(new MenuItem("drawE", "Draw E").SetValue(true));
             drawMenu.AddItem(new MenuItem("drawR", "Draw R").SetValue(true));
 
@@ -78,14 +77,14 @@ namespace MetaSharp
             {
                 var target = TargetSelector.GetTarget(R.Range, TargetSelector.DamageType.Magical);
                 if (target.IsValidTarget(R.Range))
-                    R.Cast(Player);
+                    R.Cast(target);
             }
 
             if (comboQ && Q.IsReady())
             {
                 var target = TargetSelector.GetTarget(Q.Range, TargetSelector.DamageType.Magical);
                 if (target.IsValidTarget(Q.Range))
-                    Q.CastIfHitchanceEquals(target, HitChance.VeryHigh);
+                    Q.CastIfHitchanceEquals(target, HitChance.High);
             }
 
             if (comboE && E.IsReady())
