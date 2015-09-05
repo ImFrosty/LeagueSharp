@@ -41,7 +41,7 @@ namespace MetaSharp
             comboMenu.AddItem(new MenuItem("Combo", "Combo").SetValue(new KeyBind(32, KeyBindType.Press)));
 
             Menu clearMenu = Menu.AddSubMenu(new Menu("Lane Clear", "Lane Clear"));
-            clearMenu.AddItem(new MenuItem("clearQ", "Use Q").SetValue(true));
+            clearMenu.AddItem(new MenuItem("clearQ", "Use Q").SetValue(false));
             clearMenu.AddItem(new MenuItem("clearE", "Use E").SetValue(true));
             clearMenu.AddItem(new MenuItem("Harass", "Harass").SetValue(new KeyBind("V".ToCharArray()[0], KeyBindType.Press)));
 
