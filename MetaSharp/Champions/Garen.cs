@@ -40,17 +40,11 @@ namespace MetaSharp
             comboMenu.AddItem(new MenuItem("comboR", "Use R").SetValue(true));
             comboMenu.AddItem(new MenuItem("Combo", "Combo").SetValue(new KeyBind(32, KeyBindType.Press)));
 
-            Menu clearMenu = Menu.AddSubMenu(new Menu("Jungle Clear", "Jungle Clear"));
-            clearMenu.AddItem(new MenuItem("clearQ", "Use Q").SetValue(true));
-            clearMenu.AddItem(new MenuItem("clearE", "Use E").SetValue(true));
-            clearMenu.AddItem(new MenuItem("Lane Clear", "Lane Clear").SetValue(new KeyBind("V".ToCharArray()[0], KeyBindType.Press)));
-
             Menu ksMenu = Menu.AddSubMenu(new Menu("KS", "KS"));
             ksMenu.AddItem(new MenuItem("ks", "KS").SetValue(true));
 
             Menu drawMenu = Menu.AddSubMenu(new Menu("Drawings", "Drawings"));
             drawMenu.AddItem(new MenuItem("drawQ", "Draw Q").SetValue(true));
-            drawMenu.AddItem(new MenuItem("drawW", "Draw W").SetValue(true));
             drawMenu.AddItem(new MenuItem("drawE", "Draw E").SetValue(true));
             drawMenu.AddItem(new MenuItem("drawR", "Draw R").SetValue(true));
 
@@ -154,7 +148,23 @@ namespace MetaSharp
 
         private static void Drawing_OnDraw(EventArgs args)
         {
+            if (Player.IsDead)
+                return;
 
+            if (Menu.Item("drawQ").GetValue<bool>())
+            {
+                Render.Circle.DrawCircle(Player.Position, Q.Range, Color2.Goldenrod);
+            }
+
+            if (Menu.Item("drawE").GetValue<bool>())
+            {
+                Render.Circle.DrawCircle(Player.Position, E.Range, Color2.Goldenrod);
+            }
+
+            if (Menu.Item("drawR").GetValue<bool>())
+            {
+                Render.Circle.DrawCircle(Player.Position, R.Range, Color2.Goldenrod);
+            }
         }
     }
 }
