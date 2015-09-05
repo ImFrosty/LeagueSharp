@@ -100,16 +100,18 @@ namespace MetaSharp
                 W.Cast();
             }
 
-            if (comboE && E.IsReady())
+            var target = TargetSelector.GetTarget(E.Range, TargetSelector.DamageType.True);
+
+            if (comboE && E.IsReady() && target.IsValidTarget(E.Range))
             {
                 E.Cast();
             }
 
-            var target = TargetSelector.GetTarget(R.Range, TargetSelector.DamageType.True);
+            var targetR = TargetSelector.GetTarget(R.Range, TargetSelector.DamageType.True);
 
-            if (comboR && R.IsReady() && target.IsValidTarget(R.Range) && R.IsKillable(target))
+            if (comboR && R.IsReady() && targetR.IsValidTarget(R.Range) && R.IsKillable(target))
             {
-                R.Cast(target);
+                R.Cast(targetR);
             }
 
         }
