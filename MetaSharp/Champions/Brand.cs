@@ -20,8 +20,6 @@ namespace MetaSharp
 
         private void Load()
         {
-            if (Player.ChampionName != "Brand")
-                return;
 
             Q = new Spell(SpellSlot.Q, 1050);
             W = new Spell(SpellSlot.W, 900);

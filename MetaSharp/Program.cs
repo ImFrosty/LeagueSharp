@@ -26,32 +26,32 @@ namespace MetaSharp
                 switch (cs)
                 {
                     case "Amumu":
-                        new Heimerdinger();
+                        new Amumu();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
                     case "Brand":
-                        new Nautilus();
+                        new Brand();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
                     case "Corki":
-                        new Skarner();
+                        new Corki();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
                     case "Darius":
-                        new Garen();
+                        new Darius();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
                     case "Evelynn":
-                        new Garen();
+                        new Evelynn();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
                     case "Galio":
-                        new Garen();
+                        new Galio();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
@@ -61,77 +61,77 @@ namespace MetaSharp
                         break;
 
                     case "Heimerdinger":
-                        new Garen();
+                        new Heimerdinger();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
                     case "Irelia":
-                        new Garen();
+                        new Irelia();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
                     case "Kayle":
-                        new Garen();
+                        new Kayle();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
                     case "Kennen":
-                        new Garen();
+                        new Kennen();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
                     case "KogMaw":
-                        new Garen();
+                        new KogMaw();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
                     case "Nautilus":
-                        new Garen();
+                        new Nautilus();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
                     case "Olaf":
-                        new Garen();
+                        new Olaf();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
                     case "Shyvana":
-                        new Garen();
+                        new Shyvana();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
                     case "Skarner":
-                        new Garen();
+                        new Skarner();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
                     case "Talon":
-                        new Garen();
+                        new Talon();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
                     case "Tristana":
-                        new Garen();
+                        new Tristana();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
                     case "Twitch":
-                        new Garen();
+                        new Twitch();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
                     case "XinZhao":
-                        new Garen();
+                        new XinZhao();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
                     case "Yorick":
-                        new Garen();
+                        new Yorick();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
                     case "Zilean":
-                        new Garen();
+                        new Zilean();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
