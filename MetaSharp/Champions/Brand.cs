@@ -111,35 +111,32 @@ namespace MetaSharp
             var comboE = (Menu.Item("comboE").GetValue<bool>());
             var comboR = (Menu.Item("comboR").GetValue<bool>());
 
+            var target = TargetSelector.GetTarget(W.Range, TargetSelector.DamageType.Magical);
+
             if (comboW && W.IsReady())
             {
-                var targetW = TargetSelector.GetTarget(W.Range, TargetSelector.DamageType.Magical);
-                if (targetW.IsValidTarget(W.Range))
+                if (target.IsValidTarget(W.Range))
                 {
-                    W.CastIfHitchanceEquals(targetW, HitChance.VeryHigh);
+                    W.CastIfHitchanceEquals(target, HitChance.VeryHigh);
                 }
             }
 
-            var targetE = TargetSelector.GetTarget(E.Range, TargetSelector.DamageType.Magical);
-
-            if (targetE.HasBuff("brandblaze"))
+            if (target.HasBuff("brandblaze"))
             {
                 if (comboE && E.IsReady())
                 {
-                    E.Cast(targetE);
+                    E.Cast(target);
                 }
 
                 if (comboQ && Q.IsReady())
                 {
-                    var targetQ = TargetSelector.GetTarget(Q.Range, TargetSelector.DamageType.Magical);
-                    Q.CastIfHitchanceEquals(targetQ, HitChance.VeryHigh);
+                    Q.CastIfHitchanceEquals(target, HitChance.VeryHigh);
                 }
             }
 
             if (comboR && R.IsReady())
             {
-                var targetR = TargetSelector.GetTarget(R.Range, TargetSelector.DamageType.Magical);
-                R.Cast(targetR);
+                R.Cast(target);
             }
 
         }
