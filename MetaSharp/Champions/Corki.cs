@@ -178,7 +178,7 @@ namespace MetaSharp
             {
                 return;
             }
-
+            
             var farmLocation =
                 MinionManager.GetBestCircularFarmLocation(
                     MinionManager.GetMinions(Q.Range, MinionTypes.All, MinionTeam.Enemy)

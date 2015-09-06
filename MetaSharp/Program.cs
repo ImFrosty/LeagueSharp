@@ -25,38 +25,18 @@ namespace MetaSharp
                 var def = ("Meta# Doesn't Support : ");
                 switch (cs)
                 {
-                    case "Heimerdinger":
+                    case "Amumu":
                         new Heimerdinger();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
-                    case "Nautilus":
+                    case "Brand":
                         new Nautilus();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
-                    case "Skarner":
-                        new Skarner();
-                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
-                        break;
-
-                    case "Garen":
-                        new Garen();
-                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
-                        break;
-
-                    case "Amumu":
-                        new Garen();
-                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
-                        break;
-
-                    case "Brand":
-                        new Garen();
-                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
-                        break;
-
                     case "Corki":
-                        new Garen();
+                        new Skarner();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
@@ -71,6 +51,16 @@ namespace MetaSharp
                         break;
 
                     case "Galio":
+                        new Garen();
+                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
+                        break;
+
+                    case "Garen":
+                        new Garen();
+                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
+                        break;
+
+                    case "Heimerdinger":
                         new Garen();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
@@ -95,12 +85,22 @@ namespace MetaSharp
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
+                    case "Nautilus":
+                        new Garen();
+                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
+                        break;
+
                     case "Olaf":
                         new Garen();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
                     case "Shyvana":
+                        new Garen();
+                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
+                        break;
+
+                    case "Skarner":
                         new Garen();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
