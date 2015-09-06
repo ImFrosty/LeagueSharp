@@ -45,13 +45,103 @@ namespace MetaSharp
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
+                    case "Amumu":
+                        new Garen();
+                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
+                        break;
+
+                    case "Brand":
+                        new Garen();
+                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
+                        break;
+
+                    case "Corki":
+                        new Garen();
+                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
+                        break;
+
+                    case "Darius":
+                        new Garen();
+                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
+                        break;
+
+                    case "Evelynn":
+                        new Garen();
+                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
+                        break;
+
+                    case "Galio":
+                        new Garen();
+                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
+                        break;
+
+                    case "Irelia":
+                        new Garen();
+                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
+                        break;
+
+                    case "Kayle":
+                        new Garen();
+                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
+                        break;
+
+                    case "Kennen":
+                        new Garen();
+                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
+                        break;
+
+                    case "KogMaw":
+                        new Garen();
+                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
+                        break;
+
+                    case "Olaf":
+                        new Garen();
+                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
+                        break;
+
+                    case "Shyvana":
+                        new Garen();
+                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
+                        break;
+
+                    case "Talon":
+                        new Garen();
+                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
+                        break;
+
+                    case "Tristana":
+                        new Garen();
+                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
+                        break;
+
+                    case "Twitch":
+                        new Garen();
+                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
+                        break;
+
+                    case "XinZhao":
+                        new Garen();
+                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
+                        break;
+
+                    case "Yorick":
+                        new Garen();
+                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
+                        break;
+
+                    case "Zilean":
+                        new Garen();
+                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
+                        break;
+
                     default:
                         Notifications.AddNotification(say + def, 5000).SetTextColor(Color2.Crimson);
                         break;
                 }
             }
             catch (Exception e)
-            {
+            {                                       
                 Console.WriteLine(e);
             }
         }

@@ -75,6 +75,24 @@
     <Compile Include="Champions\Skarner.cs" />
     <Compile Include="Champions\Garen.cs" />
     <Compile Include="Champions\Nautilus.cs" />
+    <Compile Include="Champions\Kennen.cs" />
+    <Compile Include="Champions\Amumu.cs" />
+    <Compile Include="Champions\Irelia.cs" />
+    <Compile Include="Champions\Kayle.cs" />
+    <Compile Include="Champions\Zilean.cs" />
+    <Compile Include="Champions\Twitch.cs" />
+    <Compile Include="Champions\KogMaw.cs" />
+    <Compile Include="Champions\Evelynn.cs" />
+    <Compile Include="Champions\Darius.cs" />
+    <Compile Include="Champions\Olaf.cs" />
+    <Compile Include="Champions\Corki.cs" />
+    <Compile Include="Champions\Brand.cs" />
+    <Compile Include="Champions\Tristana.cs" />
+    <Compile Include="Champions\Shyvana.cs" />
+    <Compile Include="Champions\Talon.cs" />
+    <Compile Include="Champions\Yorick.cs" />
+    <Compile Include="Champions\Galio.cs" />
+    <Compile Include="Champions\XinZhao.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -43,7 +43,7 @@ namespace MetaSharp
             Menu clearMenu = Menu.AddSubMenu(new Menu("Lane Clear", "Lane Clear"));
             clearMenu.AddItem(new MenuItem("clearQ", "Use Q").SetValue(false));
             clearMenu.AddItem(new MenuItem("clearE", "Use E").SetValue(true));
-            clearMenu.AddItem(new MenuItem("Harass", "Harass").SetValue(new KeyBind("V".ToCharArray()[0], KeyBindType.Press)));
+            clearMenu.AddItem(new MenuItem("Lane Clear", "Lane Clear").SetValue(new KeyBind("V".ToCharArray()[0], KeyBindType.Press)));
 
             Menu ksMenu = Menu.AddSubMenu(new Menu("KS", "KS"));
             ksMenu.AddItem(new MenuItem("ks", "KS").SetValue(true));
