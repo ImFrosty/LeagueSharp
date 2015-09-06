@@ -148,7 +148,7 @@ namespace MetaSharp
                 }
             }
 
-            if (comboR && R.IsReady())
+            if (comboR && R.IsReady() && !W.IsReady())
             {
                 R.Cast(target);
             }
