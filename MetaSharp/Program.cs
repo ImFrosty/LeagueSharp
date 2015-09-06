@@ -90,11 +90,6 @@ namespace MetaSharp
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
-                    case "Olaf":
-                        new Olaf();
-                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
-                        break;
-
                     case "Shyvana":
                         new Shyvana();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);

@@ -84,7 +84,6 @@
     <Compile Include="Champions\KogMaw.cs" />
     <Compile Include="Champions\Evelynn.cs" />
     <Compile Include="Champions\Darius.cs" />
-    <Compile Include="Champions\Olaf.cs" />
     <Compile Include="Champions\Corki.cs" />
     <Compile Include="Champions\Brand.cs" />
     <Compile Include="Champions\Tristana.cs" />
