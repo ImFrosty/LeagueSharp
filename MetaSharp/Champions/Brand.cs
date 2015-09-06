@@ -121,7 +121,7 @@ namespace MetaSharp
                 }
             }
 
-            if (target.HasBuff("brandblaze"))
+            if (target.HasBuff("BrandAblaze"))
             {
                 if (comboE && E.IsReady())
                 {
