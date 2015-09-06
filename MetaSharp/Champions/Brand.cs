@@ -44,6 +44,7 @@ namespace MetaSharp
             comboMenu.AddItem(new MenuItem("comboW", "Use W").SetValue(true));
             comboMenu.AddItem(new MenuItem("comboE", "Use E").SetValue(true));
             comboMenu.AddItem(new MenuItem("comboR", "Use R").SetValue(true));
+            comboMenu.AddItem(new MenuItem("comboUse", "Use Q and E if W Misses").SetValue(false));
             comboMenu.AddItem(new MenuItem("Combo", "Combo").SetValue(new KeyBind(32, KeyBindType.Press)));
 
             Menu harassMenu = Menu.AddSubMenu(new Menu("Harass", "Harass"));
@@ -122,6 +123,19 @@ namespace MetaSharp
             }
 
             if (target.HasBuff("BrandAblaze"))
+            {
+                if (comboE && E.IsReady())
+                {
+                    E.Cast(target);
+                }
+
+                if (comboQ && Q.IsReady())
+                {
+                    Q.CastIfHitchanceEquals(target, HitChance.VeryHigh);
+                }
+            }
+
+            if (Menu.Item("comboUse").GetValue<bool>() && !W.IsReady())
             {
                 if (comboE && E.IsReady())
                 {
