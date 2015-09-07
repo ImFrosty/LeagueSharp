@@ -80,11 +80,6 @@ namespace MetaSharp
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
                         break;
 
-                    case "KogMaw":
-                        new KogMaw();
-                        Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
-                        break;
-
                     case "Nautilus":
                         new Nautilus();
                         Notifications.AddNotification(say + cs, 5000).SetTextColor(Color2.LawnGreen);
