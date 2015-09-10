@@ -84,7 +84,7 @@ namespace MetaSharp
         {
             var comboQ = (Menu.Item("comboQ").GetValue<bool>());
             var comboW = (Menu.Item("comboW").GetValue<bool>());
-            var comboE = (Menu.Item("comboEx").GetValue<bool>());
+            var comboE = (Menu.Item("comboEx2").GetValue<bool>());
             var comboR = (Menu.Item("comboR2").GetValue<bool>());
 
             if (comboQ && Q.IsReady())
