@@ -40,9 +40,7 @@ namespace MetaSharp
             comboMenu.AddItem(new MenuItem("comboQ", "Use Q").SetValue(true));
             comboMenu.AddItem(new MenuItem("comboW", "Use W").SetValue(true));
             comboMenu.AddItem(new MenuItem("comboEx2", "Use E if 2 Enemies In Range of Ult").SetValue(true));
-            comboMenu.AddItem(new MenuItem("comboEx", "Use E if 3 Enemies In Range of Ult").SetValue(true));
             comboMenu.AddItem(new MenuItem("comboR2", "Use R if 2 Enemies").SetValue(true));
-            comboMenu.AddItem(new MenuItem("comboR", "Use R if 3 Enemies").SetValue(true));
             comboMenu.AddItem(new MenuItem("Combo", "Combo").SetValue(new KeyBind(32, KeyBindType.Press)));
 
             Menu harassMenu = Menu.AddSubMenu(new Menu("Harass", "Harass"));
@@ -87,7 +85,7 @@ namespace MetaSharp
             var comboQ = (Menu.Item("comboQ").GetValue<bool>());
             var comboW = (Menu.Item("comboW").GetValue<bool>());
             var comboE = (Menu.Item("comboEx").GetValue<bool>());
-            var comboR = (Menu.Item("comboR").GetValue<bool>());
+            var comboR = (Menu.Item("comboR2").GetValue<bool>());
 
             if (comboQ && Q.IsReady())
             {
@@ -107,22 +105,12 @@ namespace MetaSharp
                 }
             }
 
-            if (comboE && E.IsReady() && comboR && R.IsReady() && Player.CountEnemiesInRange(800) > 2)
-            {
-                E.Cast();
-            }
-
             if (Menu.Item("comboEx2").GetValue<bool>() && E.IsReady() && comboR && R.IsReady() && Player.CountEnemiesInRange(800) > 1)
             {
                 E.Cast();
             }
 
-            if (comboR && R.IsReady() && Player.CountEnemiesInRange(550) > 2)
-            {
-                R.Cast();
-            }
-
-            if (Menu.Item("comboR2").GetValue<bool>() && R.IsReady() && Player.CountEnemiesInRange(550) > 1)
+            if (comboR && R.IsReady() && Player.CountEnemiesInRange(550) > 1)
             {
                 R.Cast();
             }
