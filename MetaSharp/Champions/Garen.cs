@@ -89,7 +89,7 @@ namespace MetaSharp
             var comboE = (Menu.Item("comboE").GetValue<bool>());
             var comboR = (Menu.Item("comboR").GetValue<bool>());
 
-            if (comboQ && Q.IsReady() && Player.CountEnemiesInRange(600) > 0)
+            if (comboQ && Q.IsReady() && Player.CountEnemiesInRange(600) > 0 && !Player.HasBuff("GarenE"))
             {
                 Q.Cast();
             }
