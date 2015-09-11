@@ -91,7 +91,7 @@ namespace MetaSharp
             var x = (Menu.Item("comboRx").GetValue<Slider>().Value);
             var y = (Menu.Item("comboEx").GetValue<Slider>().Value);
 
-            if (comboQ && Q.IsReady())
+            if (comboQ && Q.IsReady() && !Player.HasBuff("KennenE"))
             {
                 var target = TargetSelector.GetTarget(Q.Range, TargetSelector.DamageType.Magical);
                 if (target.IsValidTarget(Q.Range))
@@ -100,7 +100,7 @@ namespace MetaSharp
                 }
             }
 
-            if (comboW && W.IsReady())
+            if (comboW && W.IsReady() && !Player.HasBuff("KennenE"))
             {
                 var target = TargetSelector.GetTarget(W.Range, TargetSelector.DamageType.Magical);
                 if (target.HasBuff("kennenmarkofstorm") && target.IsValidTarget(W.Range))
