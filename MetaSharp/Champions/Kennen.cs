@@ -109,7 +109,7 @@ namespace MetaSharp
                 }
             }
 
-            if (comboE && E.IsReady() && Player.CountEnemiesInRange(900) >= y)
+            if (comboE && E.IsReady() && !Player.HasBuff("KennenE") && Player.CountEnemiesInRange(900) >= y)
             {
                 E.Cast();
             }
