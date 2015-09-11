@@ -39,10 +39,10 @@ namespace MetaSharp
             Menu comboMenu = Menu.AddSubMenu(new Menu("Combo", "Combo"));
             comboMenu.AddItem(new MenuItem("comboQ", "Use Q").SetValue(true));
             comboMenu.AddItem(new MenuItem("comboW", "Use W").SetValue(true));
-            comboMenu.AddItem(new MenuItem("comboEx", "Use E if X Enemies").SetValue(new Slider(2, 1, 5)));
             comboMenu.AddItem(new MenuItem("comboE", "Use E").SetValue(true));
-            comboMenu.AddItem(new MenuItem("comboRx", "Use R if X Enemies").SetValue(new Slider(2, 1, 5)));
             comboMenu.AddItem(new MenuItem("comboR", "Use R").SetValue(true));
+            comboMenu.AddItem(new MenuItem("comboEx", "Use E if X Enemies").SetValue(new Slider(2, 1, 5)));
+            comboMenu.AddItem(new MenuItem("comboRx", "Use R if X Enemies").SetValue(new Slider(2, 1, 5)));
             comboMenu.AddItem(new MenuItem("Combo", "Combo").SetValue(new KeyBind(32, KeyBindType.Press)));
 
             Menu harassMenu = Menu.AddSubMenu(new Menu("Harass", "Harass"));
