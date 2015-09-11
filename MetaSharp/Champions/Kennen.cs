@@ -39,8 +39,10 @@ namespace MetaSharp
             Menu comboMenu = Menu.AddSubMenu(new Menu("Combo", "Combo"));
             comboMenu.AddItem(new MenuItem("comboQ", "Use Q").SetValue(true));
             comboMenu.AddItem(new MenuItem("comboW", "Use W").SetValue(true));
-            comboMenu.AddItem(new MenuItem("comboEx2", "Use E if 2 Enemies In Range of Ult").SetValue(true));
-            comboMenu.AddItem(new MenuItem("comboR2", "Use R if 2 Enemies").SetValue(true));
+            comboMenu.AddItem(new MenuItem("comboEx", "Use E if X Enemies").SetValue(new Slider(2, 1, 5)));
+            comboMenu.AddItem(new MenuItem("comboE", "Use E").SetValue(true));
+            comboMenu.AddItem(new MenuItem("comboRx", "Use R if X Enemies").SetValue(new Slider(2, 1, 5)));
+            comboMenu.AddItem(new MenuItem("comboR", "Use R").SetValue(true));
             comboMenu.AddItem(new MenuItem("Combo", "Combo").SetValue(new KeyBind(32, KeyBindType.Press)));
 
             Menu harassMenu = Menu.AddSubMenu(new Menu("Harass", "Harass"));
@@ -84,15 +86,17 @@ namespace MetaSharp
         {
             var comboQ = (Menu.Item("comboQ").GetValue<bool>());
             var comboW = (Menu.Item("comboW").GetValue<bool>());
-            var comboE = (Menu.Item("comboEx2").GetValue<bool>());
-            var comboR = (Menu.Item("comboR2").GetValue<bool>());
+            var comboE = (Menu.Item("comboE").GetValue<bool>());
+            var comboR = (Menu.Item("comboR").GetValue<bool>());
+            var x = (Menu.Item("comboRx").GetValue<Slider>().Value);
+            var y = (Menu.Item("comboEx").GetValue<Slider>().Value);
 
             if (comboQ && Q.IsReady())
             {
                 var target = TargetSelector.GetTarget(Q.Range, TargetSelector.DamageType.Magical);
                 if (target.IsValidTarget(Q.Range))
                 {
-                    Q.CastIfHitchanceEquals(target, HitChance.VeryHigh);
+                    Q.CastIfHitchanceEquals(target, HitChance.High);
                 }
             }
 
@@ -105,12 +109,12 @@ namespace MetaSharp
                 }
             }
 
-            if (Menu.Item("comboEx2").GetValue<bool>() && E.IsReady() && comboR && R.IsReady() && Player.CountEnemiesInRange(800) > 1)
+            if (comboE && E.IsReady() && Player.CountEnemiesInRange(900) >= y)
             {
                 E.Cast();
             }
 
-            if (comboR && R.IsReady() && Player.CountEnemiesInRange(550) > 1)
+            if (comboR && R.IsReady() && Player.CountEnemiesInRange(550) >= x)
             {
                 R.Cast();
             }
@@ -150,6 +154,12 @@ namespace MetaSharp
             {
                 Q.CastIfHitchanceEquals(target, HitChance.Medium);
             }
+
+            if (Menu.Item("ks").GetValue<bool>() && target.HasBuff("kennenmarkofstorm") && target.IsValidTarget(W.Range) && W.IsReady() && W.IsKillable(target))
+            {
+                W.Cast();
+            }
+
         }
 
         private static void Drawing_OnDraw(EventArgs args)
