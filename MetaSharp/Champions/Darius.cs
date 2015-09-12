@@ -20,10 +20,12 @@ namespace MetaSharp
 
         private void Load()
         {
-            Q = new Spell(SpellSlot.Q, 0);
+            Q = new Spell(SpellSlot.Q, 400);
             W = new Spell(SpellSlot.W);
-            E = new Spell(SpellSlot.E, 0);
-            R = new Spell(SpellSlot.R, 0);
+            E = new Spell(SpellSlot.E, 540);
+            R = new Spell(SpellSlot.R, 460);
+
+            E.SetSkillshot(0.1f, 50f, float.MaxValue, false, SkillshotType.SkillshotLine);
 
             Menu = new Menu("Meta#", "Meta#", true);
 
