@@ -111,12 +111,13 @@ namespace MetaSharp
                 }
             }
 
+            var targetR = TargetSelector.GetTarget(175, TargetSelector.DamageType.True);
+
             if (comboR && R.IsReady())
             {
-                var target = TargetSelector.GetTarget(175, TargetSelector.DamageType.True);
-                if (R.IsKillable(target))
+                if (R.IsKillable(targetR))
                 {
-                    R.Cast(target);
+                    R.Cast(targetR);
                 }
             }
         }
